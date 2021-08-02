@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.example.dubbo</groupId>
+	<artifactId>spring-dubbo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>${project.artifactId}</name>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>spring-dubbo-api</module>
+		<module>spring-dubbo-provider</module>
+		<module>spring-dubbo-consumer</module>
+	</modules>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring.boot.version>2.3.3.RELEASE</spring.boot.version>
+		<dubbo.version>3.0.1</dubbo.version>
+		<alibaba.version>2.2.1.RELEASE</alibaba.version>
+		<alibaba.nacos.version>1.4.2</alibaba.nacos.version>
+		<jackson.version>2.11.2</jackson.version>
+		<slf4j.version>1.7.30</slf4j.version>
+		<log4j2.version>2.13.3</log4j2.version>
+
+		<maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring -->
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- log -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-yaml</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-1.2-api</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+
+			<!-- config -->
+
+			<!-- dubbo -->
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${alibaba.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-registry-nacos</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.nacos</groupId>
+				<artifactId>nacos-client</artifactId>
+				<version>${alibaba.nacos.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>com.example.dubbo</groupId>
+				<artifactId>spring-dubbo-api</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven.resources.plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
